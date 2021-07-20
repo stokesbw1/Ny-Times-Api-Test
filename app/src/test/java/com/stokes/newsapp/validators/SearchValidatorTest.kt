@@ -13,7 +13,6 @@ class SearchValidatorTest {
         var searchInput = "";
         var result = SearchValidator.validateSearchInput(searchInput)
         assertThat(result).isEqualTo(false)
-
     }
 
     @Test

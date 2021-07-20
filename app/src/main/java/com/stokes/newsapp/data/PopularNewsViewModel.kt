@@ -28,36 +28,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PopularNewsViewModel @Inject constructor(
+    @ApplicationContext val context: Context,
     private var popularNewsRepository: PopularNewsRepository
 ) : ViewModel() {
 
-    //var context: Context = ApplicationProvider.getApplicationContext()
-    var job: Job? = null
-    fun setSearchView(searchItem: MenuItem) {
-        val searchView: SearchView = searchItem?.actionView as SearchView
-        searchView.queryHint = "Search Popular News"
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                searchView.clearFocus()
-                searchView.setQuery("", false)
-                searchItem?.collapseActionView()
-                //Toast.makeText(context, "Looking for $query", Toast.LENGTH_LONG)
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                job?.cancel()
-                job = MainScope().launch {
-                    delay(NEWS_TIME_DELAY)
-                    newText?.let {
-                        //Toast.makeText(context, "Looking for $newText", Toast.LENGTH_LONG)
-                    }
-                }
-                return true
-            }
+    fun searchForArticles(query: String): Boolean{
+        if(query.isNotEmpty()) {
+            //Toast.makeText(context, "Looking for $query", Toast.LENGTH_LONG).show()
+            return true
+        }
 
-
-        })
+        return false
     }
 
     private var popularNewsData: MutableLiveData<Resource<PopularNewsResponse>> = MutableLiveData()
