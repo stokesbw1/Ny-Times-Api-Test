@@ -20,8 +20,10 @@ The app was developed in Kotlin. It ets articles from New York Time API and then
 
 * Install Android Studio
 * Install Git
-* 
-* Any modifications needed to be made to files/folders
+* Copy git link
+* Open android studio -> File -> New -> Project From Version Control
+* Paste git link and click clone button
+* Accept any prompts
 
 ### Executing program
 
