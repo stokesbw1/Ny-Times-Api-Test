@@ -33,16 +33,9 @@ The app was developed in Kotlin. It ets articles from New York Time API and then
 code blocks for commands
 ```
 
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
 ## Authors
 
 Contributors names and contact info
 
 ex. Inncent W. Kebosedilekae  
-ex. [@DomPizzie](https://www.linkedin.com/in/innocent-kebosedilekae-221051114/)
+ex. [@TnnocentLinkedin](https://www.linkedin.com/in/innocent-kebosedilekae-221051114/)
