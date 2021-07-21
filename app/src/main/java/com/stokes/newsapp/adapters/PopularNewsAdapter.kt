@@ -55,27 +55,14 @@ class PopularNewsAdapter : RecyclerView.Adapter<PopularNewsAdapter.ResultViewHol
         }
     }
 
-
-    /*fun formatTitle(stringToFormat: String): String? {
-        var tempStringVal: String = stringToFormat
-        if (stringToFormat.count() > 50) {
-            tempStringVal = ""
-            for (j in 0..48) {
-                tempStringVal += stringToFormat[j].toString()
-                if (j == 48) tempStringVal += "..."
-            }
-        }
-        return tempStringVal
-    }*/
-
-    fun getImageUrl(result: Result): String {
+    private fun getImageUrl(result: Result): String {
         var imageUrl = ""
         result.media?.let { mediaList ->
             var height = 0
             if (mediaList.isEmpty())
                 return imageUrl
 
-            for (meta in mediaList[0].`media-metadata`) {                               // 1
+            for (meta in mediaList[0]?.`media-metadata`!!) {                               // 1
                 if (meta.height > height) {
                     height = meta.height
                     imageUrl = meta.url

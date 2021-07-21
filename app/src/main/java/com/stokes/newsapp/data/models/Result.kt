@@ -3,7 +3,7 @@ package com.stokes.newsapp.data.models
 import java.io.Serializable
 
 data class Result(
-    //val `abstract`: String,
+    val abstract: String,
     val adx_keywords: String?,
     val asset_id: Long?,
     val byline: String?,

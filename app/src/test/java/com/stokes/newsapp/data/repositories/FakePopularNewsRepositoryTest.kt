@@ -7,10 +7,9 @@ import com.stokes.newsapp.util.Constants.LAST_7_DAYS_NEWS
 import com.stokes.newsapp.util.Constants.TODAYS_NEWS
 import com.stokes.newsapp.util.Resource
 
-class FakePopularNewsRepository: PopularNewsRepository {
-    private var popularNews = mutableListOf<Result>()
-    private var popularNewsResponse: PopularNewsResponse = PopularNewsResponse("Copyright (c) 2021 The New York Times Company.  All Rights Reserved.",
-        20, popularNews, "OK")
+class FakePopularNewsRepositoryTest: PopularNewsRepository {
+    var popularNews = mutableListOf<Result>()
+    lateinit var popularNewsResponse: PopularNewsResponse
 
     private var shouldReturnNetworkError = false
 

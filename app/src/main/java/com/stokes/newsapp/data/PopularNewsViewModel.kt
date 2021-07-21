@@ -28,7 +28,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PopularNewsViewModel @Inject constructor(
-    @ApplicationContext val context: Context,
     private var popularNewsRepository: PopularNewsRepository
 ) : ViewModel() {
 
@@ -48,7 +47,7 @@ class PopularNewsViewModel @Inject constructor(
     }
 
     init {
-        getTodaysPopularNews()
+        getLast7DaysPopularNews()
     }
 
     fun getTodaysPopularNews() = viewModelScope.launch {
@@ -57,7 +56,7 @@ class PopularNewsViewModel @Inject constructor(
         popularNewsData.postValue(response)
     }
 
-    fun getLast7DaysPopularNews() = viewModelScope.launch {
+    private fun getLast7DaysPopularNews() = viewModelScope.launch {
         popularNewsData.postValue(Resource.loading(null))
         val response = popularNewsRepository.getLast7DaysNews()
         popularNewsData.postValue(response)
